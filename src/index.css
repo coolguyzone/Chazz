@@ -62,3 +62,8 @@ body {
   height: 420px;
   border: 2px solid blue;
 }
+
+.cheese {
+  height: 210px;
+  text-align: center;
+}

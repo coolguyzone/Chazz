@@ -1,8 +1,13 @@
 import React from 'react';
+import Cheese from './cheese';
 
 const Cheeses = () => (
   <div className="col-md-8" id="cheeses">
-  Cheeses Component
+  <div className="row">
+    <Cheese /><Cheese />
+  </div>
+  <div className="row"></div>
+    <Cheese /><Cheese />
   </div>
 );
 
