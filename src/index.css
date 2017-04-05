@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+
+.navbar {
+  background-color: darkblue;
+  color: white;
+}
+
+.navbar-header {
+  text-align: center;
+}
+
+#nav {
+  text-align: right;
+}
+
+#nav button {
+  margin: 0 10px;
+}
+
+#dropdowns{
+  height: 160px;
+  border: 2px solid red;
+}
+
+#cheeses {
+  height: 420px;
+  border: 2px solid green;
+}
+
+#player {
+  height: 420px;
+  border: 2px solid blue;
+}
