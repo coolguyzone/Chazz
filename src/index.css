@@ -44,7 +44,7 @@ body {
 }
 
 #dropdowns{
-  height: 160px;
+  height: 140px;
   border: 2px solid red;
 }
 
@@ -54,16 +54,29 @@ body {
 }
 
 #cheeses {
-  height: 420px;
+  height: 390px;
   border: 2px solid green;
 }
 
 #player {
-  height: 420px;
+  height: 390px;
   border: 2px solid blue;
 }
 
 .cheese {
-  height: 210px;
+  height: 140px;
   text-align: center;
+}
+
+
+.cheese img {
+  width: 100px;
+}
+
+.cheese:nth-of-type(-n + 2) {
+  margin-top: 30px;
+}
+
+.cheese:nth-of-type(n + 3) {
+  margin-top: 40px;
 }
