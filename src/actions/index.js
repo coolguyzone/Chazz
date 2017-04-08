@@ -18,6 +18,7 @@ function smooshArrays (array1, array2) {
     }
   }
   console.log(combinedCheeses);
+  return(combinedCheeses);
 }
 
 function fetchAnimalCheeseArray(animal) {
@@ -39,7 +40,7 @@ function fetchAnimalCheeseArray(animal) {
     .then(() => {
       //if there's already an array of firmness sorted cheeses
       if (firmnessFilteredCheeses.length > 0) {
-        smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses)
+        return smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses)
       }
     })
 
@@ -58,7 +59,7 @@ function fetchFirmnessCheeseArray(firmness) {
     .then(() => {
       //if there's already an array of firmness sorted cheeses
       if (animalFilteredCheeses.length > 0) {
-        smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses)
+        return smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses)
       }
     })
 }
