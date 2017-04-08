@@ -1,5 +1,5 @@
 import React from 'react';
-import Cheeses from './cheeses';
+import Cheeses from './cheeses/cheeses';
 import Player from './player';
 
 const CheesesPlayerRow = () => (

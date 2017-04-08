@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { selectFirmnessDropdown } from '../actions';
+import { selectFirmnessDropdown } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators ({ selectFirmnessDropdown }, dispatch);
 }
 
-class DropdownFirmness extends Component {
+class FirmnessDropdown extends Component {
   render() {
     return (
 
@@ -52,4 +52,4 @@ class DropdownFirmness extends Component {
 
 
 
-export default connect (mapStateToProps, mapDispatchToProps)(DropdownFirmness)
+export default connect (mapStateToProps, mapDispatchToProps)(FirmnessDropdown)

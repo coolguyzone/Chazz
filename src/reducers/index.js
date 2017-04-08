@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import dropdownSelection from './selection';
-import firmnessDropdownSelection from './dropdownfirmnessselection';
+import animalDropdownSelection from './animal-selection';
+import firmnessDropdownSelection from './firmness-selection';
 
 const chApp = combineReducers ({
 
-  dropdownSelection,
+  animalDropdownSelection,
   firmnessDropdownSelection
 
 })

@@ -1,6 +1,6 @@
-export const selectDropdown = (selection) => {
+export const selectAnimalDropdown = (selection) => {
   return {
-    type: 'SELECT_DROPDOWN',
+    type: 'SELECT_ANIMAL_DROPDOWN',
     selection
   }
 }
