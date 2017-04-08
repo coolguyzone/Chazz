@@ -6,6 +6,17 @@ const animalURL = 'http://cheeswhiz.herokuapp.com/api/cheese/animal/';
 let firmnessFilteredCheeses = [];
 let animalFilteredCheeses = [];
 
+//helper function to shuffle an array
+function arrayShuffler(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
 //helper function to combine array with duplicates
 function smooshArrays (array1, array2) {
   let combinedCheeses = [];
@@ -18,7 +29,7 @@ function smooshArrays (array1, array2) {
     }
   }
   console.log(combinedCheeses);
-  return(combinedCheeses);
+  return(arrayShuffler(combinedCheeses));
 }
 
 function fetchAnimalCheeseArray(animal) {
