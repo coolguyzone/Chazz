@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { selectFirmnessDropdown } from '../../actions';
+import { selectFirmnessDropdown, doFirmnessCheeseSearch } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators ({ selectFirmnessDropdown }, dispatch);
+  return bindActionCreators ({ selectFirmnessDropdown, doFirmnessCheeseSearch }, dispatch);
 }
 
 class FirmnessDropdown extends Component {
@@ -25,22 +25,30 @@ class FirmnessDropdown extends Component {
       <ul className="dropdown-menu dropdown-right" aria-labelledby="dropdownMenu1">
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-          this.props.selectFirmnessDropdown(this.props.option1) }}>
+          this.props.selectFirmnessDropdown(this.props.option1)
+          this.props.doFirmnessCheeseSearch(this.props.option1)
+         }}>
         {this.props.option1}
         </a></li>
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-          this.props.selectFirmnessDropdown(this.props.option2) }}>
+          this.props.selectFirmnessDropdown(this.props.option2)
+          this.props.doFirmnessCheeseSearch(this.props.option2)
+         }}>
         {this.props.option2}
         </a></li>
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-          this.props.selectFirmnessDropdown(this.props.option3) }}>
+          this.props.selectFirmnessDropdown(this.props.option3)
+          this.props.doFirmnessCheeseSearch(this.props.option3)
+         }}>
         {this.props.option3}
         </a></li>
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-          this.props.selectFirmnessDropdown(this.props.option4) }}>
+          this.props.selectFirmnessDropdown(this.props.option4)
+          this.props.doFirmnessCheeseSearch(this.props.option4)
+         }}>
         {this.props.option4}
         </a></li>
       </ul>
