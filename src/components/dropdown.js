@@ -25,16 +25,24 @@ class Dropdown extends Component {
       <ul className="dropdown-menu dropdown-right" aria-labelledby="dropdownMenu1">
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-        this.props.selectDropdown(this.props.option1) }}>{this.props.option1}</a></li>
+          this.props.selectDropdown(this.props.option1) }}>
+        {this.props.option1}
+        </a></li>
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-        this.props.selectDropdown(this.props.option2) }}>{this.props.option2}</a></li>
+          this.props.selectDropdown(this.props.option2) }}>
+        {this.props.option2}
+        </a></li>
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-        this.props.selectDropdown(this.props.option3) }}>{this.props.option3}</a></li>
+          this.props.selectDropdown(this.props.option3) }}>
+        {this.props.option3}
+        </a></li>
         <li><a href="#" onClick={(event) => {
           event.preventDefault();
-        this.props.selectDropdown(this.props.option4) }}>{this.props.option4}</a></li>
+          this.props.selectDropdown(this.props.option4) }}>
+        {this.props.option4}
+        </a></li>
       </ul>
     </div>
 

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import dropdownSelection from './selection';
+import firmnessDropdownSelection from './dropdownfirmnessselection';
 
 const chApp = combineReducers ({
 
-  dropdownSelection
+  dropdownSelection,
+  firmnessDropdownSelection
 
 })
 

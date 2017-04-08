@@ -4,3 +4,10 @@ export const selectDropdown = (selection) => {
     selection
   }
 }
+
+export const selectFirmnessDropdown = (selection) => {
+  return {
+    type: 'SELECT_FIRMNESS_DROPDOWN',
+    selection
+  }
+}
