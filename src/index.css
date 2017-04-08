@@ -71,6 +71,7 @@ body {
 
 .cheese img {
   width: 100px;
+  margin-bottom: 12px;
 }
 
 .cheese:nth-of-type(-n + 2) {
@@ -79,4 +80,8 @@ body {
 
 .cheese:nth-of-type(n + 3) {
   margin-top: 40px;
+}
+
+.cheese btn {
+  height: 2px !important;
 }
