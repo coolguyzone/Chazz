@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AnimalDropdown from './animal-dropdown';
 import FirmnessDropdown from './firmness-dropdown';
 
