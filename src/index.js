@@ -5,10 +5,13 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import chApp from './reducers';
+import promiseMiddleware from 'redux-promise-middleware';
+import thunkMiddleware from 'redux-thunk';
 
 const store = createStore(
   chApp,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(thunkMiddleware, promiseMiddleware())
 );
 
 ReactDOM.render(
