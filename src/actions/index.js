@@ -75,21 +75,52 @@ function fetchFirmnessCheeseArray(firmness) {
     })
 }
 
+function getSpotify() {
+
+
+  let query = 'jazz blues';
+  let type = 'playlist';
+
+  let url = `https://api.spotify.com/v1/search?q=${query}&type=playlist&market=US&limit=50`;
+
+  return axios
+    .get(url)
+    .then((response) => {
+      return response.data.playlists.items;
+    })
+    .then((array) => {
+      let random = Math.floor(Math.random() * 50);
+      console.log(array[random].uri);
+      return array[random].uri;
+    })
+    .catch((err) => {
+      return null;
+    });
+
+};
+
+export const randomPlaylist = () => {
+  return {
+    type: 'RANDOM_PLAYLIST',
+    payload: getSpotify()
+  };
+};
 
 
 export const selectAnimalDropdown = (selection) => {
   return {
     type: 'SELECT_ANIMAL_DROPDOWN',
     selection
-  }
-}
+  };
+};
 
 export const selectFirmnessDropdown = (selection) => {
   return {
     type: 'SELECT_FIRMNESS_DROPDOWN',
     selection
-  }
-}
+  };
+};
+
 
 export const doAnimalCheeseSearch = (animal) => {
   return {
@@ -104,3 +135,4 @@ export const doFirmnessCheeseSearch = (firmness) => {
     payload: fetchFirmnessCheeseArray(firmness.toLowerCase())
   }
 }
+
