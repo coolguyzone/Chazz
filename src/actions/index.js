@@ -23,20 +23,21 @@ function fetchCheeseArray(animal, firmness) {
 
 function getSpotify() {
 
+
   let query = 'jazz blues';
-  let type = 'track';
+  let type = 'playlist';
 
   let url = `https://api.spotify.com/v1/search?q=${query}&type=playlist&market=US&limit=50`;
 
   return axios
     .get(url)
     .then((response) => {
-      return response.json();
+      return response.data.playlists.items;
     })
-    .then((jsonObj) => {
+    .then((array) => {
       let random = Math.floor(Math.random() * 50);
-      console.log(jsonObj.playlists.items[random].uri);
-      return jsonObj.playlists.items[random].uri;
+      console.log(array[random].uri);
+      return array[random].uri;
     })
     .catch((err) => {
       return null;
