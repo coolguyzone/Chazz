@@ -79,11 +79,11 @@ body {
 }
 
 .cheese:nth-of-type(-n + 2) {
-  margin-top: 30px;
+  margin-top: 4px;
 }
 
 .cheese:nth-of-type(n + 3) {
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .cheese btn {

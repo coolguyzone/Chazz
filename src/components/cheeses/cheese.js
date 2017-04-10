@@ -1,9 +1,9 @@
 import React from 'react';
 import CheeseButton from './CheeseButton';
 
-const Cheese = () => (
+const Cheese = (props) => (
   <div className="col-md-6 cheese">
-    <div>Cheese Name</div>
+    <div>{props.cheeseName}</div>
     <img src={require('../../img/cheese-icon.png')} alt="cheese"/>
     <CheeseButton />
   </div>
