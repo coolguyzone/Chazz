@@ -6,8 +6,8 @@ import Dropdowns from './components/dropdowns/dropdowns';
 import CheesesPlayerRow from './components/cheeses-player-row';
 import Cheeses from './components/cheeses/cheeses';
 import Player from './components/player';
-import FavoritesMain from './components/favorites-view/FavoritesMain'
-import FavoritesTop from './components/favorites-view/FavoritesTop'
+import TastedMain from './components/tasted-view/TastedMain'
+import TastedTop from './components/tasted-view/TastedTop'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -19,13 +19,13 @@ class App extends Component {
 
           <div className="container">
             <Route exact path ="/" component={Dropdowns} />
-            <Route path ="/favorites" component={FavoritesTop} />
+            <Route path ="/tasted" component={TastedTop} />
             <div className="row" id="cheeses-player-row">
 
               <Route exact path ="/" component={Cheeses} />
 
 
-              <Route path ="/favorites" component={FavoritesMain} />
+              <Route path ="/tasted" component={TastedMain} />
               <Route path ="/" component={Player} />
 
               {/* <Route path ="/favorites" component={Player} /> */}
