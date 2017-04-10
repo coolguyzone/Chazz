@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { randomPlaylist } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,6 +13,31 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators ({ randomPlaylist }, dispatch);
+};
+
+
+function getSpotify() {
+
+  let query = 'jazz blues';
+  let type = 'playlist';
+
+  let url = `https://api.spotify.com/v1/search?q=${query}&type=playlist&market=US&limit=50`;
+
+  return axios
+    .get(url)
+    .then((response) => {
+      return response.data.playlists.items;
+    })
+    .then((array) => {
+
+      let random = Math.floor(Math.random() * 50);
+      console.log(array[random].uri);
+      return array[random].uri;
+    })
+    .catch((err) => {
+      return null;
+    });
+
 };
 
 

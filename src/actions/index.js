@@ -77,7 +77,6 @@ function fetchFirmnessCheeseArray(firmness) {
 
 function getSpotify() {
 
-
   let query = 'jazz blues';
   let type = 'playlist';
 
@@ -135,4 +134,3 @@ export const doFirmnessCheeseSearch = (firmness) => {
     payload: fetchFirmnessCheeseArray(firmness.toLowerCase())
   }
 }
-
