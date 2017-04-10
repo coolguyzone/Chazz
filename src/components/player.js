@@ -1,55 +1,54 @@
 import React, { Component } from 'react';
-import { randomPlaylist } from '../actions';
+import { initialPlaylist, nextPlaylist } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import arrayShuffler from '../helpers/array-shuffler.js';
 import axios from 'axios';
 
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    uri: state.playlist[state.playlist.length - 1]
+    uriArray: state.playlist.uriArray,
+    next: state.playlist.next
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators ({ randomPlaylist }, dispatch);
-};
-
-
-function getSpotify() {
-
-  let query = 'jazz blues';
-  let type = 'playlist';
-
-  let url = `https://api.spotify.com/v1/search?q=${query}&type=playlist&market=US&limit=50`;
-
-  return axios
-    .get(url)
-    .then((response) => {
-      return response.data.playlists.items;
-    })
-    .then((array) => {
-
-      let random = Math.floor(Math.random() * 50);
-      console.log(array[random].uri);
-      return array[random].uri;
-    })
-    .catch((err) => {
-      return null;
-    });
-
+  return bindActionCreators ({ initialPlaylist, nextPlaylist }, dispatch);
 };
 
 
 class Player extends Component {
+
+  componentWillMount() {
+    console.log(this.state);
+    console.log(this.props);
+    this.props = {
+      ...this.props,
+      uriArray: 'spotify:user:1138592905:playlist:1S9dCS4awycMSWevkKVsKw',
+      next: 0
+    };
+    console.log(this.props);
+
+  }
 
   render() {
 
     return (
 
       <div className="col-md-4" id="player">
-        <iframe src={`https://embed.spotify.com/?uri=${this.props.uri}`} width="300" height="350" frameBorder="0" allowTransparency="true"></iframe>
-        <button onClick={(event) => {this.props.randomPlaylist()}} className="btn btn-default" >New Jazz Playlist</button>
+        <iframe src={`https://embed.spotify.com/?uri=${
+          this.props.uriArray[this.props.next]
+        }`} width="300" height="350" frameBorder="0" allowTransparency="true"></iframe>
+        <button onClick={
+          (event) => {
+            if(this.props.next === 0) {
+              this.props.initialPlaylist();
+            }
+            else {
+              this.props.nextPlaylist();
+            }
+          }} className="btn btn-default" >New Jazz Playlist</button>
       </div>
 
     )

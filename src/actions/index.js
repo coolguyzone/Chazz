@@ -1,5 +1,5 @@
 import axios from 'axios';
-import arrayShuffler from '../helpers/array-shuffler'
+import arrayShuffler from '../helpers/array-shuffler';
 
 const firmnessURL = 'http://cheeswhiz.herokuapp.com/api/cheese/firmness/';
 const animalURL = 'http://cheeswhiz.herokuapp.com/api/cheese/animal/';
@@ -86,26 +86,33 @@ function getSpotify() {
   return axios
     .get(url)
     .then((response) => {
-      return response.data.playlists.items;
-    })
-    .then((array) => {
-      let random = Math.floor(Math.random() * 50);
-      console.log(array[random].uri);
-      return array[random].uri;
+      let pArray = response.data.playlists.items;
+      let uriArray = pArray.map((element) =>  {
+        return element.uri;
+      });
+      return arrayShuffler(uriArray);
     })
     .catch((err) => {
+      console.log('API GET Request Failed.');
       return null;
     });
 
 };
 
-export const randomPlaylist = () => {
+export const initialPlaylist = () => {
+
   return {
-    type: 'RANDOM_PLAYLIST',
+    type: 'NEXT_PLAYLIST',
     payload: getSpotify()
   };
 };
 
+export const nextPlaylist = () => {
+
+  return {
+    type: 'NEXT_PLAYLIST'
+  };
+};
 
 export const selectAnimalDropdown = (selection) => {
   return {
@@ -126,12 +133,12 @@ export const doAnimalCheeseSearch = (animal) => {
   return {
     type: 'DO_ANIMAL_CHEESE_SEARCH',
     payload: fetchAnimalCheeseArray(animal.toLowerCase())
-  }
-}
+  };
+};
 
 export const doFirmnessCheeseSearch = (firmness) => {
   return {
     type: 'DO_FIRMNESS_CHEESE_SEARCH',
     payload: fetchFirmnessCheeseArray(firmness.toLowerCase())
-  }
-}
+  };
+};
