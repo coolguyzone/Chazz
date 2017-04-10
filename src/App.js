@@ -16,10 +16,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/favorites">Favorites</Link></li>
-        </ul>
 
           <div className="container">
             <Route exact path ="/" component={Dropdowns} />

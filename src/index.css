@@ -35,11 +35,15 @@ body {
   margin-left:-100px;
 }
 
-#nav {
+#right-nav {
   text-align: right;
 }
 
-#nav button {
+#left-nav {
+  text-align: left;
+}
+
+#right-nav button, #left-nav button {
   margin: 0 10px;
 }
 
