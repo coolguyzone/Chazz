@@ -47,7 +47,7 @@ body {
   margin: 0 10px;
 }
 
-#dropdowns, #favorites-top{
+#dropdowns, #tasted-top{
   height: 140px;
   border: 2px solid red;
 }
@@ -57,7 +57,7 @@ body {
   margin-top: 10px;
 }
 
-#cheeses, #favorites-main {
+#cheeses, #tasted-main {
   height: 390px;
   border: 2px solid green;
 }
@@ -65,6 +65,15 @@ body {
 #player {
   height: 390px;
   border: 2px solid blue;
+}
+
+#tasted-top {
+  text-align: center;
+  padding-top: 40px;
+}
+
+#tasted-top h2 {
+  font-size: 3em;
 }
 
 .cheese {
