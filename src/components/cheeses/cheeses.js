@@ -26,6 +26,7 @@ class Cheeses extends Component {
             cheeseArray.push(<
               Cheese cheeseName={this.props.cheeseList[count].name}
               key={this.props.cheeseList[count].name}
+              arrayIndex={count}
             />);
             count++;
             x--;

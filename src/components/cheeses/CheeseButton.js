@@ -23,7 +23,8 @@ class CheeseButton extends Component {
       <div className="cheese-button">
       <button className="btn btn-default" onClick={(event) => {
         event.preventDefault();
-        this.props.removeCheeseFromState(0, this.props.cheeseList);
+        console.log(this.props.arrayIndex);
+        this.props.removeCheeseFromState(this.props.arrayIndex, this.props.cheeseList);
       } }>I've Tried It!</button>
     </div>
     )

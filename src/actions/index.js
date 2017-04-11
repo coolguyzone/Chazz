@@ -145,7 +145,7 @@ export const doFirmnessCheeseSearch = (firmness) => {
 
 const spliceCheese = (index, cheeseState) => {
   cheeseState.splice(index, 1);
-  return cheeseState;
+  return cheeseState.map((element) => element);
 
 }
 
