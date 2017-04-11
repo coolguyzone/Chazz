@@ -17,8 +17,7 @@ class Cheeses extends Component {
         //count is the number of times a cheese has been added to the array to be rendered
         let count = 0;
         let cheeseArray = [];
-
-        if (x === 0 && this.props.firmnessDropdownSelection != "Firmness" && this.props.animalDropdownSelection != "Animal") {
+        if (x === 0 && this.props.firmnessDropdownSelection !== 'Firmness' && this.props.animalDropdownSelection !== 'Animal') {
             return <h2>No Results!</h2>;
         }
 
@@ -42,8 +41,8 @@ class Cheeses extends Component {
                         {this.cheeseCreator()}
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default connect(mapStateToProps)(Cheeses)
+export default connect(mapStateToProps)(Cheeses);

@@ -3,8 +3,8 @@ const token = (state = null, action) => {
     case 'LOG_USER_IN':
       return action.payload;
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default token
+export default token;

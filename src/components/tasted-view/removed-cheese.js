@@ -8,6 +8,6 @@ const RemovedCheese = (props) => (
       alt="removed-cheese"
     />
   </div>
-)
+);
 
 export default RemovedCheese;

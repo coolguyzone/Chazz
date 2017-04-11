@@ -10,7 +10,6 @@ const Cheese = (props) => (
      />
     <CheeseButton arrayIndex={props.arrayIndex} />
   </div>
-)
-
+);
 
 export default Cheese;

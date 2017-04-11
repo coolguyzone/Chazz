@@ -5,20 +5,9 @@ import Cookies from 'js-cookie';
 const firmnessURL = 'http://cheeswhiz.herokuapp.com/api/cheese/firmness/';
 const animalURL = 'http://cheeswhiz.herokuapp.com/api/cheese/animal/';
 const loginURL = 'http://cheeswhiz.herokuapp.com/api/user/login';
-
 let firmnessFilteredCheeses = [];
 let animalFilteredCheeses = [];
 
-//helper function to shuffle an array
-// function arrayShuffler(array) {
-//     for (var i = array.length - 1; i > 0; i--) {
-//         var j = Math.floor(Math.random() * (i + 1));
-//         var temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//     }
-//     return array;
-// }
 
 //helper function to combine array with duplicates
 function smooshArrays (array1, array2) {
@@ -31,10 +20,10 @@ function smooshArrays (array1, array2) {
       combinedCheeses.push(array1[i]);
     }
   }
-  console.log(combinedCheeses);
   return(arrayShuffler(combinedCheeses));
 }
 
+//helper function to make API call for login
 function loginUser(email, password) {
   return axios
     .post(loginURL, {
@@ -49,31 +38,25 @@ function loginUser(email, password) {
     .catch((error) => console.log(error))
 }
 
+//helper function to make API call for cheeses by animal
 function fetchAnimalCheeseArray(animal) {
   animalFilteredCheeses = [];
-
-//fetch cheeses by animal and then push them to animalfilteredcheeses array
-//fetch cheeses by firmness and then push them to firmnessfilteredcheeses array
-//smoosh animalfiltered and firmness filtered arrays together for all entries that are duplicates
-//randomize and return combined array
-
 
   return axios
     .get(animalURL + animal)
     .then((response) => {
-      console.log(response);
       animalFilteredCheeses = response.data;
-      console.log(animalFilteredCheeses);
     })
     .then(() => {
       //if there's already an array of firmness sorted cheeses
       if (firmnessFilteredCheeses.length > 0) {
-        return smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses)
+        return smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses);
       }
-    })
+    });
 
 }
 
+//helper function to make API call for cheeses by firmness
 function fetchFirmnessCheeseArray(firmness) {
   firmnessFilteredCheeses = [];
 
@@ -85,16 +68,16 @@ function fetchFirmnessCheeseArray(firmness) {
     .then(() => {
       //if there's already an array of firmness sorted cheeses
       if (animalFilteredCheeses.length > 0) {
-        return smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses)
+        return smooshArrays(firmnessFilteredCheeses, animalFilteredCheeses);
       }
-    })
+    });
 }
 
-function getSpotify() {
 
+//helper function to make API call for spotify playlists
+function getSpotify() {
   let query = 'jazz blues';
   let type = 'playlist';
-
   let url = `https://api.spotify.com/v1/search?q=${query}&type=playlist&market=US&limit=50`;
 
   return axios
@@ -110,13 +93,19 @@ function getSpotify() {
       console.log('API GET Request Failed.');
       return null;
     });
+}
 
+//helper function to remove a cheese from cheeseList
+const spliceCheese = (index, cheeseState) => {
+  removedCheese = cheeseState.splice(index, 1);
+  return cheeseState.map((element) => element);
 };
 
 
+//Action functions
 
+//Spotify Actions
 export const initialPlaylist = () => {
-
   return {
     type: 'NEXT_PLAYLIST',
     payload: getSpotify()
@@ -124,12 +113,12 @@ export const initialPlaylist = () => {
 };
 
 export const nextPlaylist = () => {
-
   return {
     type: 'NEXT_PLAYLIST'
   };
 };
 
+//Dropdown Actions
 export const selectAnimalDropdown = (selection) => {
   return {
     type: 'SELECT_ANIMAL_DROPDOWN',
@@ -144,18 +133,10 @@ export const selectFirmnessDropdown = (selection) => {
   };
 };
 
-
 export const doAnimalCheeseSearch = (animal) => {
   return {
     type: 'DO_ANIMAL_CHEESE_SEARCH',
     payload: fetchAnimalCheeseArray(animal.toLowerCase())
-  };
-};
-
-export const logUserIn = (email, password) => {
-  return {
-    type: 'LOG_USER_IN',
-    payload: loginUser(email, password)
   };
 };
 
@@ -168,19 +149,20 @@ export const doFirmnessCheeseSearch = (firmness) => {
 //
 let removedCheese;
 
-const spliceCheese = (index, cheeseState) => {
-  removedCheese = cheeseState.splice(index, 1);
-  console.log('removedchz', removedCheese);
-  return cheeseState.map((element) => element);
-
-
-}
-
+//Tasted Cheeses Actions
 export const removeCheeseFromState = (index, cheeseState) => {
   return {
     type: 'REMOVE_CHEESE_FROM_STATE',
     payload: spliceCheese(index, cheeseState),
     removedCheese: removedCheese
 
+  };
+};
+
+//Authentication Actions
+export const logUserIn = (email, password) => {
+  return {
+    type: 'LOG_USER_IN',
+    payload: loginUser(email, password)
   };
 };

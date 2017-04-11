@@ -5,14 +5,8 @@ import RemovedCheese from './removed-cheese'
 const mapStateToProps = (state, ownProps) => {
   return {
     removedCheeses: state.removedCheeses
-  }
-}
-
-// const TastedMain = () => (
-//   <div className="col-md-8" id="tasted-main">
-//     <h2>You've Already Tasted These Cheeses</h2>
-//   </div>
-// )
+  };
+};
 
 class TastedMain extends Component {
   buildRemovedCheeseList() {
@@ -25,7 +19,6 @@ class TastedMain extends Component {
     }
 
     while (x > 0) {
-      console.log('wuh', this.props.removedCheeses[count][0].name)
       removedCheeseArray.push(
         <RemovedCheese
           cheeseName={this.props.removedCheeses[count][0].name}
@@ -43,9 +36,9 @@ class TastedMain extends Component {
       <div className="col-md-8" id="tasted-main">
         {this.buildRemovedCheeseList()}
       </div>
-    )
+    );
   }
 
 }
 
-export default connect(mapStateToProps)(TastedMain)
+export default connect(mapStateToProps)(TastedMain);

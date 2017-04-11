@@ -3,8 +3,8 @@ const removedCheeses = (state = [], action) => {
     case 'REMOVE_CHEESE_FROM_STATE':
       return [...state, action.removedCheese];
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default removedCheeses
+export default removedCheeses;

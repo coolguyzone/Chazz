@@ -7,15 +7,8 @@ const cheeseList = (state = [], action) => {
     case 'REMOVE_CHEESE_FROM_STATE':
       return action.payload;
     default:
-      return state
+      return state;
   }
-}
+};
 
-// helper
-// const spliceCheese = (cheeseIndex) => {
-//   console.log(this.state);
-//   this.state = this.state.splice(cheeseIndex, 1);
-//   return this.state;
-// }
-
-export default cheeseList
+export default cheeseList;

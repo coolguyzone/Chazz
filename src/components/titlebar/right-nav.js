@@ -6,7 +6,6 @@ const RightNav = () => (
     <Link to="/login"><button className="btn">Log In</button></Link>
     <button className="btn">Sign Up</button>
   </div>
-
 );
 
 export default RightNav;

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import RightNav from './right-nav';
 import LeftNav from './left-nav';
 

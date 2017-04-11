@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { initialPlaylist, nextPlaylist } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import arrayShuffler from '../helpers/array-shuffler.js';
-import axios from 'axios';
 const mapStateToProps = (state, ownProps) => {
   return {
     uriArray: state.playlist.uriArray,
