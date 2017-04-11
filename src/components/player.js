@@ -23,7 +23,7 @@ class Player extends Component {
   componentWillMount() {
     this.props = {
       ...this.props,
-      uriArray: ["spotify:user:rin_rin_chapinero:playlist:2lrDYZhCiI3D95McoWkWYc"],
+      uriArray: ["spotify:user:gita1503:playlist:2qkXmULVYKfaQVLYQiuMJA"],
       next: 0
     };
   }
