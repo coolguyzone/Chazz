@@ -23,7 +23,7 @@ class Player extends Component {
   componentWillMount() {
     this.props = {
       ...this.props,
-      uriArray: ["spotify:user:rin_rin_chapinero:playlist:2lrDYZhCiI3D95McoWkWYc"],
+      uriArray: ["spotify:user:gita1503:playlist:2qkXmULVYKfaQVLYQiuMJA"],
       next: 0
     };
   }
@@ -35,7 +35,7 @@ class Player extends Component {
       <div className="col-md-4" id="player">
         <iframe src={
           `https://embed.spotify.com/?uri=${this.props.uriArray[this.props.next]}`
-        } width="300" height="340" frameBorder="0" allowTransparency="true"></iframe>
+        } width="300" height="350" frameBorder="0" allowTransparency="true"></iframe>
         <button onClick={
           (event) => {
             if(this.props.next === 0) {
