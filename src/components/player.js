@@ -21,15 +21,11 @@ const mapDispatchToProps = (dispatch) => {
 class Player extends Component {
 
   componentWillMount() {
-    console.log(this.state);
-    console.log(this.props);
     this.props = {
       ...this.props,
-      uriArray: 'spotify:user:1138592905:playlist:1S9dCS4awycMSWevkKVsKw',
+      uriArray: ["spotify:user:rin_rin_chapinero:playlist:2lrDYZhCiI3D95McoWkWYc"],
       next: 0
     };
-    console.log(this.props);
-
   }
 
   render() {
@@ -37,9 +33,9 @@ class Player extends Component {
     return (
 
       <div className="col-md-4" id="player">
-        <iframe src={`https://embed.spotify.com/?uri=${
-          this.props.uriArray[this.props.next]
-        }`} width="300" height="350" frameBorder="0" allowTransparency="true"></iframe>
+        <iframe src={
+          `https://embed.spotify.com/?uri=${this.props.uriArray[this.props.next]}`
+        } width="300" height="340" frameBorder="0" allowTransparency="true"></iframe>
         <button onClick={
           (event) => {
             if(this.props.next === 0) {
