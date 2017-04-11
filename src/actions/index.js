@@ -1,5 +1,6 @@
 import axios from 'axios';
 import arrayShuffler from '../helpers/array-shuffler';
+import Cookies from 'js-cookie';
 
 const firmnessURL = 'http://cheeswhiz.herokuapp.com/api/cheese/firmness/';
 const animalURL = 'http://cheeswhiz.herokuapp.com/api/cheese/animal/';
@@ -40,7 +41,11 @@ function loginUser(email, password) {
       email: email,
       password: password
     })
-    .then((response) => console.log(response))
+    .then((response) => {
+      Cookies.set('token', response.data.token);
+      let x = Cookies.get('token');
+      console.log('x',x);
+    })
     .catch((error) => console.log(error))
 }
 
