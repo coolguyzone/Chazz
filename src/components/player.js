@@ -7,6 +7,7 @@ import axios from 'axios';
 
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('map');
   return {
     uriArray: state.playlist.uriArray,
     next: state.playlist.next
@@ -21,25 +22,22 @@ const mapDispatchToProps = (dispatch) => {
 class Player extends Component {
 
   componentWillMount() {
-    console.log(this.state);
-    console.log(this.props);
     this.props = {
       ...this.props,
-      uriArray: 'spotify:user:1138592905:playlist:1S9dCS4awycMSWevkKVsKw',
+      uriArray: ["spotify:user:johannesbosma:playlist:3r7WzQS8qyrmvRj4ZQFexg"],
       next: 0
     };
-    console.log(this.props);
-
   }
 
   render() {
 
+    console.log('render');
     return (
 
       <div className="col-md-4" id="player">
-        <iframe src={`https://embed.spotify.com/?uri=${
-          this.props.uriArray[this.props.next]
-        }`} width="300" height="350" frameBorder="0" allowTransparency="true"></iframe>
+        <iframe src={
+          `https://embed.spotify.com/?uri=${this.props.uriArray[this.props.next]}`
+        } width="300" height="340" frameBorder="0" allowTransparency="true"></iframe>
         <button onClick={
           (event) => {
             if(this.props.next === 0) {
