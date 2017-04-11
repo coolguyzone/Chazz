@@ -23,10 +23,11 @@ class Cheeses extends Component {
         }
 
         while (x > 0 && count < 4) {
-            cheeseArray.push(<
-              Cheese cheeseName={this.props.cheeseList[count].name}
-              key={this.props.cheeseList[count].name}
-              arrayIndex={count}
+            cheeseArray.push(
+              <Cheese
+                cheeseName={this.props.cheeseList[count].name}
+                key={this.props.cheeseList[count].name}
+                arrayIndex={count}
             />);
             count++;
             x--;

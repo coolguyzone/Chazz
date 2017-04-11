@@ -76,6 +76,14 @@ body {
   font-size: 3em;
 }
 
+#tasted-main {
+  text-align: center;
+}
+
+#tasted-main h2 {
+  margin-top: 40px;
+}
+
 .cheese {
   height: 140px;
   text-align: center;
@@ -86,6 +94,16 @@ body {
   width: 100px;
   margin-bottom: 12px;
 }
+
+.removed-cheese img {
+  width: 50px;
+}
+
+.removed-cheese {
+  text-align: center;
+}
+
+
 
 .cheese:nth-of-type(-n + 2) {
   margin-top: 4px;
