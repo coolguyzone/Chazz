@@ -3,6 +3,7 @@ import arrayShuffler from '../helpers/array-shuffler';
 
 const firmnessURL = 'http://cheeswhiz.herokuapp.com/api/cheese/firmness/';
 const animalURL = 'http://cheeswhiz.herokuapp.com/api/cheese/animal/';
+const loginURL = 'http://cheeswhiz.herokuapp.com/api/user/login';
 
 let firmnessFilteredCheeses = [];
 let animalFilteredCheeses = [];
@@ -31,6 +32,16 @@ function smooshArrays (array1, array2) {
   }
   console.log(combinedCheeses);
   return(arrayShuffler(combinedCheeses));
+}
+
+function loginUser(email, password) {
+  return axios
+    .post(loginURL, {
+      email: email,
+      password: password
+    })
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error))
 }
 
 function fetchAnimalCheeseArray(animal) {
@@ -133,6 +144,13 @@ export const doAnimalCheeseSearch = (animal) => {
   return {
     type: 'DO_ANIMAL_CHEESE_SEARCH',
     payload: fetchAnimalCheeseArray(animal.toLowerCase())
+  };
+};
+
+export const logUserIn = (email, password) => {
+  return {
+    type: 'LOG_USER_IN',
+    payload: loginUser(email, password)
   };
 };
 
