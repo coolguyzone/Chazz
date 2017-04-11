@@ -52,4 +52,5 @@ class Player extends Component {
 }
 
 
+
 export default connect (mapStateToProps, mapDispatchToProps)(Player);
