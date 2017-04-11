@@ -7,7 +7,6 @@ import axios from 'axios';
 
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('map');
   return {
     uriArray: state.playlist.uriArray,
     next: state.playlist.next
@@ -24,14 +23,13 @@ class Player extends Component {
   componentWillMount() {
     this.props = {
       ...this.props,
-      uriArray: ["spotify:user:johannesbosma:playlist:3r7WzQS8qyrmvRj4ZQFexg"],
+      uriArray: ["spotify:user:rin_rin_chapinero:playlist:2lrDYZhCiI3D95McoWkWYc"],
       next: 0
     };
   }
 
   render() {
 
-    console.log('render');
     return (
 
       <div className="col-md-4" id="player">
