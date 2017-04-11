@@ -64,9 +64,7 @@ function fetchFirmnessCheeseArray(firmness) {
   return axios
     .get(firmnessURL + firmness)
     .then ((response) => {
-      console.log(response);
       firmnessFilteredCheeses = response.data;
-      console.log(firmnessFilteredCheeses);
     })
     .then(() => {
       //if there's already an array of firmness sorted cheeses
@@ -98,6 +96,8 @@ function getSpotify() {
     });
 
 };
+
+
 
 export const initialPlaylist = () => {
 
@@ -140,5 +140,18 @@ export const doFirmnessCheeseSearch = (firmness) => {
   return {
     type: 'DO_FIRMNESS_CHEESE_SEARCH',
     payload: fetchFirmnessCheeseArray(firmness.toLowerCase())
+  };
+};
+
+const spliceCheese = (index, cheeseState) => {
+  cheeseState.splice(index, 1);
+  return cheeseState;
+
+}
+
+export const removeCheeseFromState = (index, cheeseState) => {
+  return {
+    type: 'REMOVE_CHEESE_FROM_STATE',
+    payload: spliceCheese(index, cheeseState)
   };
 };

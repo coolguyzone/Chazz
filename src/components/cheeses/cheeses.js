@@ -2,19 +2,12 @@ import React, {Component} from 'react';
 import Cheese from './cheese';
 import {connect} from 'react-redux';
 
-// const Cheeses = () => (
-//   <div className="col-md-8" id="cheeses">
-//   <div className="row">
-//     <Cheese cheeseName='test1' /><Cheese cheeseName='stinky' />
-//   </div>
-//   <div className="row"></div>
-//     <Cheese cheeseName='ched' /><Cheese cheeseName='pepjack' />
-//   </div>
-// );
 
 const mapStateToProps = (state, ownProps) => {
-    return {cheeseList: state.cheeseList,
-      animalDropdownSelection: state.animalDropdownSelection, firmnessDropdownSelection: state.firmnessDropdownSelection}
+    return {
+      cheeseList: state.cheeseList,
+      animalDropdownSelection: state.animalDropdownSelection, firmnessDropdownSelection: state.firmnessDropdownSelection
+    }
 }
 
 class Cheeses extends Component {
@@ -30,7 +23,10 @@ class Cheeses extends Component {
         }
 
         while (x > 0 && count < 4) {
-            cheeseArray.push(<Cheese cheeseName={this.props.cheeseList[count].name}/>);
+            cheeseArray.push(<
+              Cheese cheeseName={this.props.cheeseList[count].name}
+              key={this.props.cheeseList[count].name}
+            />);
             count++;
             x--;
         }
@@ -48,5 +44,4 @@ class Cheeses extends Component {
     }
 }
 
-// export default Cheeses;
 export default connect(mapStateToProps)(Cheeses)
