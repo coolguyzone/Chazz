@@ -142,16 +142,22 @@ export const doFirmnessCheeseSearch = (firmness) => {
     payload: fetchFirmnessCheeseArray(firmness.toLowerCase())
   };
 };
+//
+let removedCheese;
 
 const spliceCheese = (index, cheeseState) => {
-  cheeseState.splice(index, 1);
+  removedCheese = cheeseState.splice(index, 1);
+  console.log('removedchz', removedCheese);
   return cheeseState.map((element) => element);
+
 
 }
 
 export const removeCheeseFromState = (index, cheeseState) => {
   return {
     type: 'REMOVE_CHEESE_FROM_STATE',
-    payload: spliceCheese(index, cheeseState)
+    payload: spliceCheese(index, cheeseState),
+    removedCheese: removedCheese
+
   };
 };
