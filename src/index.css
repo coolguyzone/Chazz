@@ -13,10 +13,15 @@ body {
   color: white;
 }
 
+.navbar h1 {
+  color: #E79C39;
+}
+
 
 
 .navbar .btn {
   background-color: #C9AF5E;
+
 }
 
 #dropdowns .btn, #player .btn, #cheeses .btn {
