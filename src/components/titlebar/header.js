@@ -9,7 +9,7 @@ const Header = () => (
     <div className="row">
       <LeftNav />
       <div className="navbar-header col-md-4">
-        <h1>CHAZZ</h1>
+        <h1>🌕🎷 CHAZZ 🎷🌕</h1>
       </div>
       <RightNav />
     </div>

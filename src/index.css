@@ -2,13 +2,25 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #E6DCB3;
+  color: black;
 }
 
 
 
 .navbar {
-  background-color: darkblue;
+  background-color: #4D1919;
   color: white;
+}
+
+
+
+.navbar .btn {
+  background-color: #C9AF5E;
+}
+
+#dropdowns .btn, #player .btn, #cheeses .btn {
+  background-color: #4D1919;
 }
 
 .navbar-header {
@@ -47,9 +59,15 @@ body {
   margin: 0 10px;
 }
 
+.btn {
+  color: white;
+}
+
 #dropdowns, #tasted-top{
-  height: 140px;
-  border: 2px solid red;
+  height: 120px;
+  /*border: 2px solid red;*/
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
 }
 
 #dropdowns p {
@@ -59,12 +77,13 @@ body {
 
 #cheeses, #tasted-main {
   height: 390px;
-  border: 2px solid green;
+  margin-top: 16px;
+  /*border: 2px solid green;*/
 }
 
 #player {
   height: 390px;
-  border: 2px solid blue;
+  /*border: 2px solid blue;*/
 }
 
 #tasted-top {
