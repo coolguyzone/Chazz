@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    form: state.form
+    formData: state.form
   };
 };
 
@@ -22,7 +22,7 @@ class LoginForm extends Component {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          let x = this.props.form['object Object'].values;
+          let x = this.props.formData.login.values;
           this.props.logUserIn(x.email, x.password);
         }}
         id="login"
@@ -59,7 +59,7 @@ class LoginForm extends Component {
 }
 
 LoginForm = reduxForm({
-  form: 'login'
+  form: "login"
 })(LoginForm);
 
 export default connect (mapStateToProps, mapDispatchToProps)(LoginForm);
